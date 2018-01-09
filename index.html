@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>register for a course</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>    
+</head>
+<body ng-controller="appController">
+    Submit A Course:
+    <form ng-submit="appController.Addcourse(appController.firstNameText,appController.lastNameText)">
+        <label>First Name: </label>
+        <input type="text" ng-model="appController.firstNameText"/>
+        <label>Last Name: </label>
+        <input type="text" ng-model="appController.lastNameText"/>
+        <label>Select A course: </label>
+        <select ng-model="model.course" ng-options="course.course for course in courses" ></select>
+        <button type="submit" ng-click="Addcourse()">Submit</button>
+    </form>
+    <br />
+    <br />
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Student full Name</th>
+            <th>Course</th>
+        </tr>
+        <tbody>
+            <tr ng-repeat="course in courses">
+                <td>{{course.id}}</td>
+                <td>{{course.student_firstName}}{{course.student_lastName}}</td>
+                <td>{{course.course}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
