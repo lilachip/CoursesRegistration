@@ -11,24 +11,26 @@
     <script type="text/javascript" src="app.js"></script>    
 </head>
 <body ng-controller="appController">
-    Submit A Course:
-    <form ng-submit="appController.Addcourse(appController.firstNameText,appController.lastNameText)">
+    Submit to A Course:
+    <form class="form-horizontal" role="form">
         <label>First Name: </label>
-        <input type="text" ng-model="appController.firstNameText"/>
+        <input type="text" name="firstNameText" ng-model="firstNameText"/>
         <label>Last Name: </label>
-        <input type="text" ng-model="appController.lastNameText"/>
+        <input type="text" name="lastNameText" ng-model="lastNameText"/>
         <label>Select A course: </label>
-        <select ng-model="model.course" ng-options="course.course for course in courses" ></select>
-        <button type="submit" ng-click="Addcourse()">Submit</button>
+        <select ng-model="selectedCourse" ng-options="course.course for course in courses" ></select>
+        <button type="submit" ng-click="Addcourse()" class="btn btn-primary">Submit</button>
     </form>
     <br />
     <br />
-    <table>
+    <table class="table table-striped">
+            <thead class="thead-dark">
         <tr>
             <th>Id</th>
-            <th>Student full Name</th>
+            <th>Student's full Name</th>
             <th>Course</th>
         </tr>
+            </thead>
         <tbody>
             <tr ng-repeat="course in courses">
                 <td>{{course.id}}</td>
