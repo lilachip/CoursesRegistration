@@ -38,7 +38,7 @@
         </div>
     </form>
     <br>
-    <!-- <div ng-if=""> -->
+    <div ng-if="coursesRegistrationList.length > 0">
     <h2>Current Registrations</h2>
     <table class="table table-striped">
         <thead class="thead-dark">
@@ -54,11 +54,11 @@
                 <td>{{course.id}}</td>
                 <td>{{course.student_firstName}}</td>
                 <td>{{course.student_lastName}}</td>
-                <td>{{selectedCourse}}</td>
+                <td>{{curse.curse}}</td>
             </tr>
         </tbody>
     </table>  
-    <!-- </div> -->
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>   
