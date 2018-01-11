@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html ng-app="app">
+
 <head>
     <meta charset="utf-8" />
     <title>register for a course</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>    
+    <script type="text/javascript" src="app.js"></script>   
 </head>
-<body ng-controller="appController">
+
+<body ng-controller="AngularJSCtrl">
+    </br>    
     Submit to A Course:
+    </br>    
     <form class="form-horizontal" role="form">
         <label>First Name: </label>
-        <input type="text" name="firstNameText" ng-model="firstNameText"/>
+        <input type="text" name="firstNameText" ng-model="firstNameText" />
         <label>Last Name: </label>
-        <input type="text" name="lastNameText" ng-model="lastNameText"/>
+        <input type="text" name="lastNameText" ng-model="lastNameText" />
         <label>Select A course: </label>
-        <select ng-model="selectedCourse" ng-options="course.course for course in courses" ></select>
+        
+        <select ng-model="selectedCourse">
+            <option ng-repeat="course in coursesArray" value="{{course.title}}">{{course.title}}</option>            
+        </select>
+
+        <p>You have selected: {{ selectedCourse }}</p>
+        <!-- <select ng-model="selectedCourse" ng-options="course.course for course in courses"></select> -->
         <button type="submit" ng-click="Addcourse()" class="btn btn-primary">Submit</button>
     </form>
     <br />
     <br />
     <table class="table table-striped">
-            <thead class="thead-dark">
-        <tr>
-            <th>Id</th>
-            <th>Student's full Name</th>
-            <th>Course</th>
-        </tr>
-            </thead>
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Student's first Name</th>
+                <th>Student's last Name</th>
+                <th>Course</th>
+            </tr>
+        </thead>
         <tbody>
-            <tr ng-repeat="course in courses">
+            <tr ng-repeat="course in coursesRegistrationList">
                 <td>{{course.id}}</td>
-                <td>{{course.student_firstName}}{{course.student_lastName}}</td>
-                <td>{{course.course}}</td>
+                <td>{{course.student_firstName}}</td>
+                <td>{{course.student_lastName}}</td>
+                <td>{{selectedCourse}}</td>
             </tr>
         </tbody>
-    </table>
+    </table>  
 </body>
+
 </html>
